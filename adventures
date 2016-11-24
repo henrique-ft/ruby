@@ -1,0 +1,2 @@
+puts "Ruby também pode interpretar arquivos sem o .rb"
+puts 1 + 2 + 4
