@@ -1,5 +1,3 @@
-# Declaração da variável
-
 # O print mostra um valor mas não pula linha, o método gets pega um valor inserido no terminal, ele recebe apenas strings
 
 print "Digite o nome do restaurante:"
@@ -49,6 +47,46 @@ puts outronome
 outronome.capitalize!
 puts outronome
 
+# Converte todos os caracteres de uma string para UPCASE
+
+puts "----------------------"
+puts "Astros".upcase
+
+# Converte todos os caracteres de uma string para downcase
+
+puts "----------------------"
+puts "Astros".downcase
+
+# Converte todos os caracteres de uma string para sWAPCASE
+
+puts "----------------------"
+puts "Astros".swapcase
+
+# Reverte todos os caracteres
+
+puts "----------------------"
+puts "Astros".reverse
+
+# Reverte todos os caracteres e transforma em UPCASE
+
+puts "----------------------"
+puts "Astros".reverse.upcase
+
+# Substitui a primeira ocorrência de azul por vermelho
+
+puts "----------------------"
+puts "O carro é azul".sub "azul", "vermelho"
+
+# Substitui as ocorrências de azul por vermelho
+
+puts "----------------------"
+puts "O carro é azul. Minha blusa é azul".sub "azul", "vermelho"
+
+# Remove os espaços no começo e no fim de uma string
+
+puts "----------------------"
+puts "  O carro é azul. Minha blusa é azul    ".strip
+
 # Como no ruby tudo é objeto temos um método chamado class que mostra a classe de tal objeto
 
 puts "----------------------"
@@ -65,6 +103,6 @@ maisumnome ||= "não tinha sido preenchida antes"
 puts maisumnome
 
 
-
+# http://ruby-doc.org/core-2.4.0/String.html para todos os métodos de strings
 
 fim = gets
