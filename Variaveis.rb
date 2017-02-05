@@ -22,3 +22,4 @@
 
     # @@hey é uma variável que é apenas disponível em instâncias de uma determinada classe, @@ significa variaveis de classe
     # @@hey
+    

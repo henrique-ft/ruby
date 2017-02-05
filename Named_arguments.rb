@@ -31,7 +31,7 @@ end
 
 # Named arguments tornam o código mais claro para outros desenvolvedores que forem pega-lo
 
-sms_generator api_key: "K0w91MADK", num: 139999999, message: 'hey there'
+sms_generator2 api_key: "K0w91MADK", num: 139999999, message: 'hey there'
 
 # Também podemos chamar named arguments de maneira dinâmica
 

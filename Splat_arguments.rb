@@ -5,9 +5,9 @@ def roster *players
     p players
 end
 
-rooster 'Um','Dois','Tres','Quatro'
+roster 'Um','Dois','Tres','Quatro'
 
-# Dessa maneira você pode passar um array com chave e valor que irá receber em players_with_positions
+# Dessa maneira você pode passar um array com chave e valor que irá receber em players_wit
 
 def other_roster **players_with_positions
     
@@ -19,9 +19,10 @@ def other_roster **players_with_positions
     end
 end
 
-roster {
-    
-    "Henrique" : "Zagueiro",
-    "Ronaldo" : "Atacante",
-    "José" : "Goleiro"
+data = {
+    "Henrique": "Zagueiro",
+    "Ronaldo": "Atacante",
+    "José": "Goleiro"
 }
+
+other_roster data

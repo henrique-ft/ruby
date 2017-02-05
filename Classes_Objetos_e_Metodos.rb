@@ -169,11 +169,13 @@ class Pessoa
 		
 	end
 
-	def diz_nome
+	protected # todos os métodos abaixo desse são Protecteds
 
-		"meu nome é #{@nome}"
-
-	end
+		def diz_nome
+	
+			"meu nome é #{@nome}"
+	
+		end
 
 end
 
@@ -187,7 +189,7 @@ puts "-------------------------------"
 
 class Pessoa
 
-	def initialize(nome,altura,cor_do_cabelo)
+	def initialize(nome,altura,cor_do_cabelo) # Método constutor
 
 		@nome = nome
 		@altura = altura
@@ -284,12 +286,34 @@ class Invoice
 	# Métodos de instância
 	def convert_to_pdf
 		
-		"Converted to PDF"
+		puts "Converted to PDF"
 	end
 
 end
 
 puts Invoice.print_out
 
+
+class ImExtending < Invoice
+
+	def extend
+		
+		'im extending another class'	
+	end
+	
+	def convert_to_pdf # Polimorfismo
+	
+		super # Chama o convert_to_pdf da classe pai antes desse
+		
+		puts "Converted to PDF extended"
+	end
+	
+	private # Métodos privados abaixo desse
+		
+		def metodo_private
+			
+			'im a private method'	
+		end
+end
 
 fim = gets
