@@ -63,12 +63,17 @@ elsif 5 > 0
 
 end
 
+unless idade < 5
+
+    puts "Você tem menos de 5 anos"
+end
+
 # Condicionais inline
 
 x = 0
 y = 0
 
-# se x for igual a i, 3 é atribuido a y
+# Se x for igual a i, 3 é atribuido a y
 
 if x == 1 then y = 3 end
 
