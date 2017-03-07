@@ -40,8 +40,8 @@ end
 
 # Nesse caso irá retornar erro, pois funções em if ternário devem ter ()
 
-P is_valid_email? "teste@teste.com" ? "Valid" : "Invalid"
+p is_valid_email? "teste@teste.com" ? "Valid" : "Invalid"
 
 # Nesse caso está tudo ok
 
-P is_valid_email?("teste@teste.com") ? "Valid" : "Invalid"
+p is_valid_email?("teste@teste.com") ? "Valid" : "Invalid"
