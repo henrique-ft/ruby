@@ -1,0 +1,7 @@
+Princípios orientação a objetos
+
+* Dados e comportamento que são relacionados ficam no mesmo lugar (Classe).
+
+* Tell Don't Ask: diga para o objeto fazer alguma coisa, não peça. (Em geral, não permitir acesso direto aos atributos da classe. Sempre que precisar deles, crie um método que os retorne da maneira que for necessária para a ocasião externa). Isso serve para deixarmos claro qual objeto tem responsabilidade sobre tal informação. Além disso tornamos os objetos menos acoplados ou dependentes um dos outros. Trabalhamos melhor com o princípio de comunicação por "mensagens" entre objetos e ficamos acoplados apenas a interface pública/externa de um objeto.
+
+* Crie métodos contrutores. Eles servem para garantir que se um objeto existe, ele foi criado corretamente.
