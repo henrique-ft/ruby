@@ -33,7 +33,6 @@ rescue StandardError => e # Captura qualquer erro do tipo StandardError
 end
 
 # Captura de erro customizado
-
 def error_logger(e)
    
     File.open('errors/error_log.txt','a') do |file|
@@ -49,3 +48,4 @@ rescue StandardError => e
 
     error_logger("Error: #{e} at #{Time.now}")
 end
+

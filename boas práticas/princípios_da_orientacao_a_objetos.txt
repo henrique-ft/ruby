@@ -1,8 +1,21 @@
 Princípios orientação a objetos
 
-* Dados e comportamento que são relacionados ficam no mesmo lugar (Classe).
+*** Dados e comportamento que são relacionados ficam no mesmo lugar (Classe).
 
-* Tell Don't Ask: diga para o objeto fazer alguma coisa, não peça. (Em geral, não permitir acesso direto aos atributos da classe. Sempre que precisar deles, crie um método que os retorne da maneira que for necessária para a ocasião externa). Isso serve para deixarmos claro qual objeto tem responsabilidade sobre tal informação. Além disso tornamos os objetos menos acoplados ou dependentes um dos outros. Trabalhamos melhor com o princípio de comunicação por "mensagens" entre objetos e ficamos acoplados apenas a interface pública/externa de um objeto. 
+*** Tell Don't Ask: diga para o objeto fazer alguma coisa, não peça. (Em geral, não permitir acesso direto aos atributos da classe. Sempre que precisar deles, crie um método que os retorne da maneira que for necessária para a ocasião externa). Isso serve para deixarmos claro qual objeto tem responsabilidade sobre tal informação. Além disso tornamos os objetos menos acoplados ou dependentes um dos outros. Trabalhamos melhor com o princípio de comunicação por "mensagens" entre objetos e ficamos acoplados apenas a interface pública/externa de um objeto. 
 A comunicação entre objetos deve ser feita de modo transparente à implementação dele. Quando um objeto libera acesso a atribuir um valor qualquer de um estado que ele armazena faz com que qualquer mudança no modo de funcionamento do objeto possa quebrar compatibilidade com aqueles que o usam. Facilitar acesso aos valores internos de um objeto é como trabalhar com estruturas sem comportamento: modelos anêmicos
 
-* Crie métodos contrutores. Eles servem para garantir que se um objeto existe, ele foi criado corretamente.
+*** Crie métodos contrutores. Eles servem para garantir que se um objeto existe, ele foi criado corretamente.
+
+*** Não converse com estranhos (Law of Demeter) 
+
+Na classe C, para todos os métodos M definidos em C, todos os objetos com o qual M se comunica deve ser:
+
+Argumento de M
+Um membro de C
+Objetos criados por M, por métodos que M invoca ou objetos de escopo global na classe são considerados argumentos de M.
+
+Esta lei tem dois propósitos primários:
+
+Simplificar modificações;
+Simplificar a complexidade da programação.
