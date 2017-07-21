@@ -123,6 +123,12 @@ class Estoque
 
 end
 
+class Conversor
+   def string_para_alfanumerico(nome)
+       nome.gsub /[^\w\s]/,''
+   end
+end
+
 algoritmos = Livro.new("Algoritmos", 100, 1998, true)
 arquitetura = Livro.new("Introdução a Arquitetura e Design de Software", 70, 2011, true)
 programmer = Livro.new("The Pragmatic Programmer", 100, 1999, true)
@@ -155,3 +161,62 @@ numbers << 15
 numbers << 17
 
 puts numbers.maximo_necessario
+
+
+# Imagine que agora obtivemos uma array contendo os preços de alguns livros. 
+# Desejamos formatar esse valor para um string que represente um valor monetário em reais. 
+# Por exemplo, em vez de:
+#
+#     precos = [30.0, 40.0, 70.0, 59.0]
+#     puts precos.to_s
+#     => [30.0, 40.0, 70.0, 59.0]
+#
+# Gostaríamos de obter:
+#
+#     puts precos.to_s
+#     => ["R$30,00", "R$40,00", "R$70,00", "R$59,00"]
+#
+# Como poderíamos resolver essa questão? 
+# Pensando que a maioria dos números de nossa aplicação serão relativos a valores dos livros, 
+# poderíamos abrir alguma classe já existente ou criar uma nova classe de conversor?
+#
+# Poderíamos abrir a classe Floar adicionando um NOVO MÉTODO. 
+# Ou seja, nesse caso não há problemas, pois não estamos modificando comportamentos, estamos adicionando.
+
+class Float
+    def para_dinheiro
+      valor = "R$" << self.to_s.tr('.', ',')
+      valor << "0" unless valor.match /(.*)(\d{2})$/
+      valor
+    end
+end
+
+puts precos = [30.00, 40.00, 70.00, 59.00]
+precos_string = []
+precos.each do |preco|
+puts preco.class
+precos_string << preco.para_dinheiro
+end
+puts precos_string.to_s
+
+# Desejamos mostrar uma mensagem para o usuário no seguinte estilo: "Olá! Há x títulos distintos na lista de livros!"
+
+# Onde x é o número e títulos que há em nossa array. 
+# Poderíamos usar livros_computacao.length para mostrar quantos títulos há na array; contudo repetições seriam consideradas. 
+# Será que nesse contexto não seria melhor exibir o tamanho da array sem contar títulos que se repetem?
+# Para isso, seria interessante alterar o método length na classe Array ou poderíamos alterar o método somente no objeto livros_computacao? 
+# É de responsabilidade de todo objeto array não considerar valores repetidos ou somente do objeto livros_computacao?
+
+# Nesse caso seria interessante modificar o método length somente no objeto livros_computacao. 
+# Basicamente, apenas para esse objeto no contexto que temos é interessante que repetições não sejam consideradas.
+# Aparentemente não são todos os objetos do tipo Array que devem desconsiderar elementos repetidos na contagem.
+
+# Abrindo o objeto livros_computacao e modificando o comportamento no método length
+
+def livros_computacao.length
+	unique = []
+	self.each do |item|
+	  unique.push(item) unless unique.include?(item)
+	end
+	unique.length
+end
