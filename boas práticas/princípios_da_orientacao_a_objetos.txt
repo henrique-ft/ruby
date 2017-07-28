@@ -19,3 +19,7 @@ Esta lei tem dois propósitos primários:
 
 Simplificar modificações;
 Simplificar a complexidade da programação.
+
+*** Generalização. Generalize o máximo os métodos e classes, ou seja, deixe-os genéricos. Isso evita a repetição de código, por exemplo, quando duas funções
+tem o comportamento extremamente parecido, sendo diferenciandas apenas por uma ou duas linhas, ou um detalhe, isso é um indício que provavelmente podemos e devemos
+generaliza-las, ou seja, criar uma função mais genérica que supra os dois casos.
