@@ -107,39 +107,63 @@ class Estoque
   # end
 
   ############
+ 
+  # REFATORAÇÃO 4
 
-  def que_mais_vendeu_por(tipo, &campo)
-    @vendas.select {|l| l.tipo == tipo}.sort {|v1,v2|
-      quantidade_de_vendas_por(v1, &campo) <=> quantidade_de_vendas_por(v2, &campo)
-    }.last
+  # Os métodos ainda estão muito parecidos, e o código ainda está muito repetido, o único parâmetro que muda é o segundo
+  # Entõa vamos a mais uma refatoração, deixando o segundo parâmetro mais genérico
+  
+  # def livro_que_mais_vendeu_por_titulo
+  #   que_mais_vendeu_por("livro", &:titulo)
+  # end
+
+  # def livro_que_mais_vendeu_por_ano
+  #   que_mais_vendeu_por("livro", &:ano)
+  # end
+
+  # def livro_que_mais_vendeu_por_editora
+  #   que_mais_vendeu_por("livro", &:editora)
+  # end
+
+  # def revista_que_mais_vendeu_por_titulo
+  #   que_mais_vendeu_por("revista", &:titulo)
+  # end
+
+  # def revista_que_mais_vendeu_por_ano
+  #   que_mais_vendeu_por("revista", &:ano)
+  # end
+
+  # def revista_que_mais_vendeu_por_editora
+  #   que_mais_vendeu_por("revista", &:editora)
+  # end
+
+  # ULTIMA REFATORAÇÃO
+
+  # Com o Ruby, temos um método chamado method missing, que recebe um symbol equivalente ao nome de um método que foi chamado na aplicação e não existe na classe.
+
+  # def livro_que_mais_vendeu_por(&campo)
+  #   que_mais_vendeu_por("livro", &campo)
+  # end
+
+  # def revista_que_mais_vendeu_por(&campo)
+  #   que_mais_vendeu_por("revista", &campo)
+  # end
+
+  def method_missing(name)
+    matcher = name.to_s.match "(.+)_que_mais_vendeu_por_(.+)"
+    if matcher
+      tipo = matcher[1]
+      campo = matcher[2].to_sym
+      que_mais_vendeu_por(tipo, &campo)
+    else
+      super
+    end
   end
 
-  def quantidade_de_vendas_por(produto , &campo)
-    @vendas.count {|venda| campo.call(venda) == campo.call(produto)}
-  end
+  # Toda vez que usamos o method missing, temos que sobrescrever também o método respond_to?, para garantir que ele retorne True caso chame um método que seja chamado com o method_missing
 
-  def livro_que_mais_vendeu_por_titulo
-    que_mais_vendeu_por("livro", &:titulo)
-  end
-
-  def livro_que_mais_vendeu_por_ano
-    que_mais_vendeu_por("livro", &:ano)
-  end
-
-  def livro_que_mais_vendeu_por_editora
-    que_mais_vendeu_por("livro", &:editora)
-  end
-
-  def revista_que_mais_vendeu_por_titulo
-    que_mais_vendeu_por("revista", &:titulo)
-  end
-
-  def revista_que_mais_vendeu_por_ano
-    que_mais_vendeu_por("revista", &:ano)
-  end
-
-  def revista_que_mais_vendeu_por_editora
-    que_mais_vendeu_por("revista", &:editora)
+  def respond_to?(name)
+    name.to_s.match "(.+)_que_mais_vendeu_por_(.+)" || super
   end
 
   def exporta_csv
@@ -172,5 +196,17 @@ class Estoque
 	def maximo_necessario
 		@livros.maximo_necessario
 	end
+
+  private
+
+    def que_mais_vendeu_por(tipo, &campo)
+      @vendas.select {|l| l.tipo == tipo}.sort {|v1,v2|
+        quantidade_de_vendas_por(v1, &campo) <=> quantidade_de_vendas_por(v2, &campo)
+      }.last
+    end
+
+    def quantidade_de_vendas_por(produto , &campo)
+      @vendas.count {|venda| campo.call(venda) == campo.call(produto)}
+    end
 
 end

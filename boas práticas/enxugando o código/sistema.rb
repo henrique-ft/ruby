@@ -12,6 +12,7 @@ arquitetura = Livro.new("Introdução a Arquitetura e Design de Software", 70, 2
 programmer = Livro.new("The Pragmatic Programmer", 100, 1999, true, "", "livro")
 ruby = Livro.new("Programming Ruby", 100, 2004, true, "", "livro")
 revistona = Livro.new("Revista de Ruby", 10, 2012, true, "", "revistas")
+online_arquitetura = Livro.new("Introdução a Arquitetura e Design de Software", 50, 2012, true, "", "ebook")
 
 estoque = Estoque.new
 
@@ -23,7 +24,6 @@ estoque << ruby << ruby << ruby
 estoque.vender ruby
 estoque.vender algoritmos
 estoque.vender algoritmos
+estoque.vender online_arquitetura
 puts estoque.livro_que_mais_vendeu_por_titulo.titulo
-puts estoque.revista_que_mais_vendeu_por_titulo.titulo
-
 
