@@ -8,9 +8,7 @@ module Produto
 
 	# As classes que incluirem este módulo vão ganhar um método privado.
 	# Ele será privado ao objeto.
-	# Um módulo não têm métodos privados somente para ele
-	# Se a palavra private estivesse sido incluida dentro do escopo de uma classe e se Produto fosse uma superclasse de ebook, revista e livro, e não um módulo,
-	# produto, revista e livro não teriam acesso a esse método
+    # Um método privado em Ruby é privado ao objeto, e não ao módulo ou classe onde ele foi definido
 
 	private
 

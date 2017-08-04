@@ -4,5 +4,16 @@ Repare que as classes ebook, livro e revista têm muitos métodos iguais, ou sej
 
 Podemos criar um módulo Produto que generaliza o comportamento que um produto deve ter, carrega todos os métodos que ebook, livro e revista têm em comum
 
-SEMPRE QUE EXISTE UM COMPORTAMENTO QUE ESTÁ SENDO UTILIZADO EM DIVERSAS CLASSES, PODEMOS PEGAR ESTE COMPORTAMENTO E EXTRAIR PARA UM MÓDULO.
-PORÉM É BOM TOMAR CUIDADO, POIS O ACOPLAMENTO COM ESSE MÓDULO VAI REFLETIR EM TODAS AS CLASSES QUE O USAM.
+SEMPRE QUE EXISTE UM COMPORTAMENTO PADRÃO QUE ESTÁ SENDO UTILIZADO EM DIVERSAS CLASSES, E ESTE COMPORTAMENTO NÃO ESTÁ LIGADO A UM TIPO DE ESTADO CONCRETO (PRODUTO POR EXEMPLO, É BEM GENÉRICO, NÃO PODERÍAMOS FAZER A INSTÂNCIA DE UM OBJETO PRODUTO), PODEMOS PEGAR ESTE COMPORTAMENTO E EXTRAIR PARA UM MIXIN(MODULO).
+TAMBÉM PODEMOS UTILIZAR OS MIXINS QUANDO PRECISARMOS ATRIBUIR UM COMPORTAMENTO PARA UMA INSTÂNCIA ESPECÍFICA. 
+
+Em linguagens com tipagem estática como Java ou C#, o ideal seria utilizarmos classes abstratas
+
+Em Ruby todas as classes são abertas, ou seja, sempre será possível reimplementar métodos ou adicionar módulos que alteram o comportamento da classe, tornando impossível proibir completamente a instanciação e, consequentemente, a implementação de classes abstratas (pelo menos de acordo com o conceito apresentado aqui).
+
+Pequeno trecho sobre a questão de Mixins no Ruby, como podemos correlacionar com classes abstratas em outras linguagens e Duck Typing.
+
+"If you’ve been coding in conventional typed languages, you’ve probably been taught that the type of an object is its class—all objects are instances of some class, and that class is the object’s type. The class defines the operations (methods) that the object can support, along with the state (instance variables) on which those methods operate.
+In Ruby, the class is never (OK, almost never) the type. Instead, the type of an object is defined more by what that object can do. In Ruby, we call this duck typing. If an object walks like a duck and talks like a duck, then the interpreter is happy to treat it as if it were a duck."
+
+- Programming Ruby
