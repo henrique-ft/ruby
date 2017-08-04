@@ -1,0 +1,27 @@
+Herdando comportamento através de mixins e polimorfismo
+
+Repare que as classes ebook, livro e revista têm muitos métodos iguais, ou seja, estamos repetindo código e temos um comportamento comum entre eles, um comportamento comum a tudo o que for PRODUTO. É hora de generalizar.
+
+Podemos criar uma classe Produto que generaliza o comportamento que um produto deve ter, carrega todos os métodos que ebook, livro e revista têm em comum
+
+SEMPRE QUE EXISTE UM COMPORTAMENTO PADRÃO QUE ESTÁ SENDO UTILIZADO EM DIVERSAS CLASSES, E ESTE COMPORTAMENTO NÃO ESTÁ LIGADO A UM TIPO DE ESTADO CONCRETO, PODEMOS PEGAR ESTE COMPORTAMENTO E EXTRAIR PARA UM MIXIN(MODULO), no caso em questão, o módulo Impresso é esse comportamento.
+
+TAMBÉM PODEMOS UTILIZAR OS MIXINS QUANDO PRECISARMOS ATRIBUIR UM COMPORTAMENTO PARA UMA INSTÂNCIA ESPECÍFICA. 
+
+USE MÓDULOS QUANDO A CLASSE SE COMPORTA COMO ALGO
+USE CLASSES QUANDO A CLASSE É ALGO
+
+Ebooks, Livros e Revistas SÃO PRODUTOS
+Livros e Revistas se comportam como IMPRESSOS
+
+Em Ruby todas as classes são abertas, ou seja, sempre será possível reimplementar métodos ou adicionar módulos que alteram o comportamento da classe, tornando impossível proibir completamente a instanciação e, consequentemente, a implementação de classes abstratas (pelo menos de acordo com o conceito apresentado aqui).
+
+
+O ACOPLAMENTO ENTRE MÓDULOS EM RUBY É MUITO ALTO, PRECISAMOS SABER COMO TAL MÓDULO VAI SER REUTILIZADO DENTRO DE OUTROS MÓDULOS EM RELAÇÃO A UMA CLASSE. 
+É DIFÍCIL CONHECER TODOS OS MÓDULOS E TODAS AS MANEIRAS POSSÍVEIS QUE UM MÓDULO PODE SER UTILIZADO
+
+POR ISSO EM RELAÇÃO A CONSTRUÇÃO DE UM OBJETO, É COMUM TRABALHARMOS NA HERANÇA DAS CLASSES E NÃO ATRAVÉS DA INCLUSÃO DE MÓDULOS
+
+POR FIM, EVITE UTILIZAR MÓDULOS QUE ALTERE O ESTADO INTERNO DO OBJETO, A INCLUSÃO DE DIVERSOS MÓDULOS PODE GERAR UM EFEITO INESPERADO NO SEU SISTEMA.
+
+ALÉM DISSO, UMA BOA PRÁTICA É PERMITIR QUE MÓDULOS ACESSEM APENAS MÉTODOS PUBLICOS DENTRO DA CLASSE QUE ELE SERÁ INCLUIDO.

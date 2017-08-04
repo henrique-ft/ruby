@@ -5,3 +5,8 @@ Não me importa quem você é, me importa que você tenha esse comportamento e v
 Em Ruby, podemos chamar qualquer método em qualquer objeto, independente de ele ser de um tipo específico. Se o objeto responde (respond_to?) por aquele método (:matches?), ele será invocado normalmente. O nome dessa característica da linguagem é duck typing: não importa qual o tipo do objeto e sim se ele possui o método ou não.
 
 Uma das vantagens dessa abordagem é não precisar de uma fase de compilação para garantir que o método exista. Contudo, uma desvantagem é que se tal método existe mas executa uma tarefa diferente da imaginada (possui semântica diferente), o método será chamado erroneamente.
+
+Pequeno trecho sobre a questão de Duck Typing no livro Programming Ruby.
+
+"If you’ve been coding in conventional typed languages, you’ve probably been taught that the type of an object is its class—all objects are instances of some class, and that class is the object’s type. The class defines the operations (methods) that the object can support, along with the state (instance variables) on which those methods operate.
+In Ruby, the class is never (OK, almost never) the type. Instead, the type of an object is defined more by what that object can do. In Ruby, we call this duck typing. If an object walks like a duck and talks like a duck, then the interpreter is happy to treat it as if it were a duck."
