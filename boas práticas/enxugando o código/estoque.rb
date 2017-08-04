@@ -199,8 +199,32 @@ class Estoque
 
   private
 
+  # Sem Duck Typing
+
+  #  def que_mais_vendeu_por(tipo, &campo)
+  #    @vendas.select {|produto| produto.tipo == tipo}.sort {|v1,v2|
+  #      quantidade_de_vendas_por(v1, &campo) <=> quantidade_de_vendas_por(v2, &campo)
+  #   }.last
+  #  end
+
+  # Com Duck Typing
+
+  # O matches pergunta se o produto pertence a categoria que você esta criando
+  # Ou seja, em cada classe: Revista, Livro ou Ebook terá de ser implementado um método matches? que retorna true ou false
+  # O método matches? recebe um parâmetro chamado query, através desse parâmetro o método verifica se o objeto faz parte
+  # do grupo de comportamento esperado, se ele, em sentido figurado, 'mesmo se for um ser humano, tem uma fantasia de pato e faz quack'
+  # No caso em questão, se ele tem o comportamento que a nossa aplicação espera, ou seja, se ele é um ebook, um livro ou uma revista
+  #
+  #
+  # def matches?(query)
+  #   ["ebook","digital"].include?(query)
+  # end
+  #
+  # Não importa para quem eu estou perguntando
+  # Importa que você tenha o método matches? e que o método matches me diga se você é de tal categoria ou não
+
     def que_mais_vendeu_por(tipo, &campo)
-      @vendas.select {|l| l.tipo == tipo}.sort {|v1,v2|
+      @vendas.select {|produto| produto.matches?(tipo)}.sort {|v1,v2|
         quantidade_de_vendas_por(v1, &campo) <=> quantidade_de_vendas_por(v2, &campo)
       }.last
     end
