@@ -1,0 +1,8 @@
+Herdando comportamento através de mixins e polimorfismo
+
+Repare que as classes ebook, livro e revista têm muitos métodos iguais, ou seja, estamos repetindo código e temos um comportamento comum entre eles, um comportamento comum a tudo o que for PRODUTO. É hora de generalizar.
+
+Podemos criar um módulo Produto que generaliza o comportamento que um produto deve ter, carrega todos os métodos que ebook, livro e revista têm em comum
+
+SEMPRE QUE EXISTE UM COMPORTAMENTO QUE ESTÁ SENDO UTILIZADO EM DIVERSAS CLASSES, PODEMOS PEGAR ESTE COMPORTAMENTO E EXTRAIR PARA UM MÓDULO.
+PORÉM É BOM TOMAR CUIDADO, POIS O ACOPLAMENTO COM ESSE MÓDULO VAI REFLETIR EM TODAS AS CLASSES QUE O USAM.
