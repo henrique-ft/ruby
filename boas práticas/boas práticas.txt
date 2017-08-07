@@ -1,0 +1,3 @@
+Boas Práticas
+
+*** Sobrescrever o método to_s sempre é uma boa prática quando queremos criar uma mensagem mais elegante que descreva o estado interno dos objetos
