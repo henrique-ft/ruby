@@ -12,7 +12,6 @@ Sidekiq.configure_server do |config|
   config.redis = { db: 5 }
 end
 
-# Todo Worker no Sidekiq é uma thread
 # Quando chamamos o método perform do worker um "Job" é criado, colocado na fila "Default" do Sidekiq no Redis. 
 # Recebemos o seu id do job como retorno (JID)
 # Todo worker gera um Job 
