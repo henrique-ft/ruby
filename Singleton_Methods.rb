@@ -5,9 +5,9 @@
 ob = Object.new
 
 class << ob
-    def blather(str)
-        p "Blather, blather #{str}"
-    end
+  def blather(str)
+    p "Blather, blather #{str}"
+  end
 end
 
 ob.blather "hey"
@@ -17,7 +17,7 @@ ob.blather "hey"
 ob2 = Object.new
 
 def ob2.blather(str)
-    p "Blather2, blather2 #{str}"
+  p "Blather2, blather2 #{str}"
 end
 
 ob2.blather "ho"

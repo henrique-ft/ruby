@@ -1,35 +1,35 @@
 require 'ostruct'
 
 class Author
-    
-    attr_accessor :first_name, :last_name, :genre
-    
-    def author
-        
-        OpenStruct.new(first_name: first_name, last_name: last_name, genre: genre)
+
+  attr_accessor :first_name, :last_name, :genre
+
+  def author
+
+    OpenStruct.new(first_name: first_name, last_name: last_name, genre: genre)
+  end
+
+  # O método method_missing é chamado sempre que na instância, for solicitado um método que não existe na declaração da classe.
+  # Nesse caso, se não existir o método, ele recebe o nome e verifica se começa com 'author_', se sim chama um método com um nome com o que vier depois do 'author_'
+  # Se não, chama o method missing default com o super
+
+  def method_missing(method_name, *arguments, &block)
+
+    if method_name.to_s =~ /author_(.*)/
+
+      author.send($1, *arguments, &block)
+    else
+
+      super
     end
-    
-    # O método method_missing é chamado sempre que na instância, for solicitado um método que não existe na declaração da classe.
-    # Nesse caso, se não existir o método, ele recebe o nome e verifica se começa com 'author_', se sim chama um método com um nome com o que vier depois do 'author_'
-    # Se não, chama o method missing default com o super
-    
-    def method_missing(method_name, *arguments, &block)
-        
-        if method_name.to_s =~ /author_(.*)/
-            
-            author.send($1, *arguments, &block)
-        else
-            
-            super
-        end
-    end
-    
-    def respond_to_missing?(method_name, include_private = false)
-        
-        # Fez a mesma lógica que o método method_missing, porém de uma maneira reduzida
-        method_name.to_s.start_with?('author_') || super
-    end
-    
+  end
+
+  def respond_to_missing?(method_name, include_private = false)
+
+    # Fez a mesma lógica que o método method_missing, porém de uma maneira reduzida
+    method_name.to_s.start_with?('author_') || super
+  end
+
 end
 
 author = Author.new

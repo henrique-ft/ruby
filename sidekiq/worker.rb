@@ -12,19 +12,19 @@ Sidekiq.configure_server do |config|
   config.redis = { db: 5 }
 end
 
-# Quando chamamos o método perform do worker um "Job" é criado, colocado na fila "Default" do Sidekiq no Redis. 
+# Quando chamamos o método perform do worker um "Job" é criado, colocado na fila "Default" do Sidekiq no Redis.
 # Recebemos o seu id do job como retorno (JID)
-# Todo worker gera um Job 
+# Todo worker gera um Job
 # Um Job pode ser definido como uma abstração do worker dado um estado definido pela aplicação
 # Ou seja, um Job é uma representação da classe worker(com estado definido na hora que foi criado) esperando para ser executado na fila
 # Os parâmetros do Perform são os valores(estado definido) que o Job irá carregar e utilizar quando executar a sua regra de negócio
 
-# Todo processo Sidekiq da um "pull" na fila "Default" de jobs do Redis e executa-o 
+# Todo processo Sidekiq da um "pull" na fila "Default" de jobs do Redis e executa-o
 
-# Podemos criar jobs na fila das seguintes maneiras: 
+# Podemos criar jobs na fila das seguintes maneiras:
 
 # MyWorker.perform_async(1, 2, 3)
-# ou 
+# ou
 # Sidekiq::Client.push('class' => MyWorker, 'args' => [1, 2, 3])
 
 # Quando o processo do sidekiq der um "pull" na fila e receber o Job, ele executará o perform
@@ -34,15 +34,15 @@ class OurWorker
 
   def perform(complexity)
     case complexity
-      when "super_hard"
-        sleep 20
-        puts "Really took quite a bit of effort"
-      when "hard"
-        sleep 10
-        puts "That was a bit of work"
-      else
-        sleep 1
-        puts "That wasn't a lot of effort"
+    when "super_hard"
+      sleep 20
+      puts "Really took quite a bit of effort"
+    when "hard"
+      sleep 10
+      puts "That was a bit of work"
+    else
+      sleep 1
+      puts "That wasn't a lot of effort"
     end
   end
 end
@@ -56,15 +56,15 @@ class OtherQueueWorker
 
   def perform(complexity)
     case complexity
-      when "super_hard"
-        sleep 20
-        puts "Really took quite a bit of effort"
-      when "hard"
-        sleep 10
-        puts "That was a bit of work"
-      else
-        sleep 1
-        puts "That wasn't a lot of effort"
+    when "super_hard"
+      sleep 20
+      puts "Really took quite a bit of effort"
+    when "hard"
+      sleep 10
+      puts "That was a bit of work"
+    else
+      sleep 1
+      puts "That wasn't a lot of effort"
     end
   end
 end

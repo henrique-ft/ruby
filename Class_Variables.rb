@@ -1,18 +1,18 @@
 class Hey
-    
-    # Variável de classe é uma variável que igual para todas as instâncias, ou seja, se for alterada em uma, é alterada em todas as instâncias.
-    
-    @@numero_de_instancias = 0 
-    
-    def initialize
-        
-        @@numero_de_instancias += 1 # Incrementa a variável de classe
-    end
-    
-    def numero_de_instancias
-        @@numero_de_instancias
-    end
-    
+
+  # Variável de classe é uma variável que igual para todas as instâncias, ou seja, se for alterada em uma, é alterada em todas as instâncias.
+
+  @@numero_de_instancias = 0
+
+  def initialize
+
+    @@numero_de_instancias += 1 # Incrementa a variável de classe
+  end
+
+  def numero_de_instancias
+    @@numero_de_instancias
+  end
+
 end
 
 ob = Hey.new
