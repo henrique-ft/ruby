@@ -98,9 +98,50 @@ end
 # prints: deconstruct_keys called with [:x]
 #=> "matched: 1"
 
+# *** Matching classes
+class SuperPoint < Point
+end
+
+case Point.new(1, -2)
+  in SuperPoint[x: 1 => px]
+    p "matched: #{px}"
+  else
+    p "not matched"
+end
+#=> "not matched"
+
+case SuperPoint.new(1, -2)
+  in SuperPoint[x: 1 => px]
+    p "matched: #{px}"
+  else
+    p "not matched"
+end
+#=> "matched: 1"
+
+# *** Guards
+
+case [1, 2]
+  in a, b if b == a*2
+    "matched"
+  else
+    "not matched"
+end
+#=> "matched"
+
+case [1, 1]
+  in a, b if b == a*2
+    "matched"
+  else
+    "not matched"
+end
+
+# One line
+
+{a: 1, b: 2} in {a: a_value}
+
+p a_value # prints 1
 
 case {a: 3, b: "oi", c: 0}
   in {b: b, x: 4}
   p b # raises "NoMatchingPatternError"
 end
-
