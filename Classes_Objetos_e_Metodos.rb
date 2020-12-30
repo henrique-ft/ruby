@@ -1,5 +1,5 @@
 # Uma das funcionalidades comuns a diversas linguagens orientadas a objeto está na capacidade de, dado um objeto, descobrir de que tipo ele é.
-# No ruby, existe um método chamado class(), que retorna o tipo do objeto, enquanto object_id(), retorna o número da referência, ou identificador único do objeto 
+# No ruby, existe um método chamado class(), que retorna o tipo do objeto, enquanto object_id(), retorna o número da referência, ou identificador único do objeto
 # dentro da memória heap. Todo objeto que criarmos ja vão vir com os métodos class e object_id
 
 # Criando um Objeto -------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -16,10 +16,10 @@ lugar = gets
 
 def pessoa.ir_para(lugar)  # Nesse caso atibuímos a função ir_para ao objeto objeto
 
-	"indo para #{lugar}" 	
+	"indo para #{lugar}"
 end
 
-puts pessoa.ir_para(lugar)  
+puts pessoa.ir_para(lugar)
 
 # Dois parâmetros
 
@@ -40,11 +40,15 @@ end
 
 puts trocar_roupa2('camisa')
 
+def trocar_roupa_ruby_3(lugar="banheiro",roupa) = "trocando minha #{roupa} no #{lugar}"
+
+puts trocar_roupa_ruby_3('camisa')
+
 # Múltiplos parâmetros
 # A variável produtos vira um Array contendo todos os parâmetros passados
 
 def comprar(*produtos)
-	
+
 	puts produtos.size()
 
 	for i in produtos
@@ -66,7 +70,7 @@ comprar 'oi','adeus','tchal'
 listadecompra = [1,2,3,"maçã","banana","pera"]
 
 def comprar2(*produtos) # O operador * é chamado de splat
-	
+
 	puts "<começo da lista de compra>"
 
 	puts "tamanho = #{produtos.size()}"
@@ -98,7 +102,7 @@ def transfere(argumentos)
 	valor = argumentos[:valor]
 
 	puts "#{data} #{destino} #{valor}"
-	
+
 end
 
 transfere({destino: "escola", data: Time.now, valor: 50.00})
@@ -166,15 +170,15 @@ class Pessoa
 	def mudar_nome(novo_nome)
 
 		@nome = novo_nome
-		
+
 	end
 
 	protected # todos os métodos abaixo desse são Protecteds
 
 		def diz_nome
-	
+
 			"meu nome é #{@nome}"
-	
+
 		end
 
 end
@@ -205,7 +209,7 @@ Diandra.mudar_nome "Robertona"
 puts Diandra.diz_nome
 
 # No Ruby temos algumas coisas diferentes em relação a atributos de uma classe: Métodos acessores e modificadores
-# Métodos acessores são métodos que servem apenas para acessar/retornar um valor de um atributo 
+# Métodos acessores são métodos que servem apenas para acessar/retornar um valor de um atributo
 # Métodos modificadores servem para modificar/setar o valor de um atributo (alternativa aos métodos Set) fazendo a sintaxe ficar parecida com outras linguagens
 # É uma forma de deixar o atributo mascaradamente público
 
@@ -238,7 +242,7 @@ puts "-------------------------------"
 puts 10.+(3)
 
 # attr_reader , attr_writer, attr_accessor
-# imagine uma classe com muitos atributos... ficar definindo os métodos acessores e modificadores para cada atributo que precisar se torna muito trabalhoso. 
+# imagine uma classe com muitos atributos... ficar definindo os métodos acessores e modificadores para cada atributo que precisar se torna muito trabalhoso.
 # O Ruby tem um método
 # que escreve para você o métodos acessor: attr_reader e um outro que escreve o modificador: attr_writer de cada atributo, tem também um que escreve os dois: attr_acessor.
 
@@ -248,10 +252,10 @@ class Pessoa
 	attr_accessor :cor_dos_olhos
 
 	# repare que eu não havia declarado o atributo @peso antes. De uma certa meneira, o attr_acessor é uma forma mascarada de declarar atributos que podem ser acessados e modificados fora da classe.
-	attr_accessor :peso 
+	attr_accessor :peso
 
 end
-	
+
 Marinaldo = Pessoa.new("Marinaldo",1.80,"loiro")
 
 Marinaldo.altura = 1.50
@@ -276,16 +280,16 @@ puts Marinaldo.methods
 # Métodos de classe e métodos de instância
 
 class Invoice
-	
+
 	# Métodos de classe, são equivalentes aos métodos estáticos
 	def self.print_out
-	
-		"Printed our invoice"	
+
+		"Printed our invoice"
 	end
-	
+
 	# Métodos de instância
 	def convert_to_pdf
-		
+
 		puts "Converted to PDF"
 	end
 
@@ -297,22 +301,22 @@ puts Invoice.print_out
 class ImExtending < Invoice
 
 	def extend
-		
-		'im extending another class'	
+
+		'im extending another class'
 	end
-	
+
 	def convert_to_pdf # Polimorfismo
-	
+
 		super # Chama o convert_to_pdf da classe pai antes desse
-		
+
 		puts "Converted to PDF extended"
 	end
-	
+
 	private # Métodos privados abaixo desse
-		
+
 		def metodo_private
-			
-			'im a private method'	
+
+			'im a private method'
 		end
 end
 
