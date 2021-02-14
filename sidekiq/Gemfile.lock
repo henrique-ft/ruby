@@ -3,7 +3,7 @@ GEM
   specs:
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
-    rack (1.6.9)
+    rack (2.2.3)
     rack-protection (1.5.3)
       rack
     redis (3.3.3)
