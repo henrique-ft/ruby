@@ -34,8 +34,8 @@ p string.to_enum(:scan, /\d+/).map { Regexp.last_match }
 VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-}+(\.[a-z]+)*\.[a-z]+\z/i
 
 def is_valid_email? email
-    
-    email =~ VALID_EMAIL_REGEX
+
+email =~ VALID_EMAIL_REGEX
 end
 
 # Nesse caso irá retornar erro, pois funções em if ternário devem ter ()

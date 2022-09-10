@@ -9,9 +9,8 @@ puts full_name.call("Henrique","Fernandez")
 
 # ou
 
-full_name2 = Proc.new do |first| 
-    
-    first * 5
+full_name2 = Proc.new do |first|
+  first * 5
 end
 
 puts full_name2["henrique"]

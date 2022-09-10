@@ -1,5 +1,4 @@
 class Author
-
   # Com a função define_method, você pode definir um método dinamicamente dentro de uma classe
 
   define_method("some_method") do

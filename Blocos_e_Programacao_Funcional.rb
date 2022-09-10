@@ -3,7 +3,6 @@
 contas = [1,2,3,4,5]
 
 class Banco
-
   def initialize(contas)
     @contas = contas
   end
@@ -15,7 +14,6 @@ class Banco
     end
     saldo
   end
-
 end
 
 banco = Banco.new(contas)
@@ -27,7 +25,6 @@ puts "-------------------"
 # ele pode receber parâmetos e ser invocado. Nesse caso o bloco é chamado atravéz do método call em cada laço do for.
 
 class Banco
-
   def status(&block)
     saldo = 0
     for conta in @contas
@@ -35,7 +32,6 @@ class Banco
       block.call(saldo)
     end
   end
-
 end
 
 # Qualquer tipo de execução, como outros cálculos, que eu desejar fazer para cada saldo, posso fazê-lo passando blocos distintos
@@ -56,7 +52,6 @@ end
 puts "-------------------"
 
 def Mine(&block)
-
   block.call do |y|
     puts y
   end
@@ -70,7 +65,6 @@ end
 # O Ruby também tem outra sintaxe para escrever blocos, trocando o do e o end por {}
 
 def Minecraft(&block)
-
   block.call { |y|
     puts y
   }
@@ -87,7 +81,6 @@ puts "-------------------"
 # Para verificar se o bloco foi passado como parâmetro podemos usar a função block_given?
 
 class Banco
-
   def status(&block)
     saldo = 0
     for conta in @contas
@@ -99,7 +92,6 @@ class Banco
     end
     saldo
   end
-
 end
 
 puts banco.status
@@ -109,9 +101,7 @@ puts banco.status
 puts "--------------------"
 
 class Banco
-
   def status
-
     saldo = 0
 
     for conta in @contas
@@ -124,13 +114,10 @@ class Banco
 
     saldo
   end
-
 end
 
 banco.status do |x|
-
   x *= 2
-
 end
 
 fim = gets

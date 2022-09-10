@@ -321,15 +321,15 @@ class HelloTable
         # Sort by these additional properties after handling sort by the column the user clicked
         additional_sort_properties :date, :time, :home_team, :away_team, :ballpark, :promotion
 
-#         menu {
-#           menu_item {
-#             text 'Book'
-#
-#             on_widget_selected {
-#               book_selected_game
-#             }
-#           }
-#         }
+        #         menu {
+        #           menu_item {
+        #             text 'Book'
+        #
+        #             on_widget_selected {
+        #               book_selected_game
+        #             }
+        #           }
+        #         }
       }
 
       button {
@@ -352,4 +352,3 @@ class HelloTable
     }.open
   end
 end
-

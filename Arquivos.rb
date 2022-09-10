@@ -12,9 +12,8 @@ File.open('arquivos/teams.txt','w+')
 
 # Cria o arquivo e escreve Twis, Astros e Mets
 
-File.open('arquivos/teams.txt','w+') {|f| 
-        
-    f.write("Twis, Astros, Mets")
+File.open('arquivos/teams.txt','w+') {|f|
+  f.write("Twis, Astros, Mets")
 }
 
 # Também temos a maneira orientada a objetos
@@ -29,7 +28,7 @@ teams = File.read('arquivos/teams.txt')
 
 # Retorna uma string contendo o conteúdo do arquivo
 
-p teams 
+p teams
 
 # Quebra a string
 
@@ -41,14 +40,13 @@ File.delete("arquivos/teams.txt")
 
 # Adicionando conteúdo a um arquivo
 
-10.times do 
-   
-   sleep 1
-   
-   puts "Record saved..."
-   
-   File.open("arquivos/logs.txt", "a") {|f| 
-       
-       f.puts "Server started as: #{Time.new}"
-   }
+10.times do
+  sleep 1
+
+  puts "Record saved..."
+
+  File.open("arquivos/logs.txt", "a") {|f|
+
+    f.puts "Server started as: #{Time.new}"
+  }
 end

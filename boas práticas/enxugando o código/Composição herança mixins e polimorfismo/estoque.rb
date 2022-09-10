@@ -2,18 +2,18 @@ require_relative "contador"
 
 class Estoque
 
-	attr_reader :livros
+  attr_reader :livros
 
   def initialize
-  	@livros = []
-  	@vendas = []
-  	@livros.extend Contador
+    @livros = []
+    @vendas = []
+    @livros.extend Contador
   end
 
   # REFATORAÇÃO 1
   #
   # Podemos generalizar os métodos quantidade_de_vendas_por ... pois se continuarmos seguindo esse padrão iremos repetir várias vezes o mesmo código
-  
+
   # def quantidade_de_vendas_de_titulo(produto)
   # 	@vendas.count {|venda| venda.titulo == produto.titulo}
   # end
@@ -32,8 +32,8 @@ class Estoque
 
   # REFATORAÇÃO 2
   #
-  # Podemos generalizar ainda mais esses métodos, 
-  # observe que o trecho de código quantidade_de_vendas_por(v1, &:titulo) <=> quantidade_de_vendas_por(v2, &:titulo) 
+  # Podemos generalizar ainda mais esses métodos,
+  # observe que o trecho de código quantidade_de_vendas_por(v1, &:titulo) <=> quantidade_de_vendas_por(v2, &:titulo)
   # se repete em todas as funções
   #
   # def quantidade_de_vendas_por(produto , &campo)
@@ -107,12 +107,12 @@ class Estoque
   # end
 
   ############
- 
+
   # REFATORAÇÃO 4
 
   # Os métodos ainda estão muito parecidos, e o código ainda está muito repetido, o único parâmetro que muda é o segundo
   # Entõa vamos a mais uma refatoração, deixando o segundo parâmetro mais genérico
-  
+
   # def livro_que_mais_vendeu_por_titulo
   #   que_mais_vendeu_por("livro", &:titulo)
   # end
@@ -167,35 +167,35 @@ class Estoque
   end
 
   def exporta_csv
-		@livros.each do |livro|
-			puts livro.to_csv
-		end
-	end
+    @livros.each do |livro|
+      puts livro.to_csv
+    end
+  end
 
-	def mais_baratos_que(valor)
-		@livros.select do |livro|
-			livro.preco <= valor
-	  end
-	end
+  def mais_baratos_que(valor)
+    @livros.select do |livro|
+      livro.preco <= valor
+    end
+  end
 
-	def total
-		@livros.size
-	end
+  def total
+    @livros.size
+  end
 
-	def <<(livro)
+  def <<(livro)
 
-		@livros << livro if livro
-		self # Faz o método devolver ele mesmo e não o @livro
-	end
+    @livros << livro if livro
+    self # Faz o método devolver ele mesmo e não o @livro
+  end
 
-	def vender(livro)
-		@livros.delete livro
-		@vendas << livro
-	end
+  def vender(livro)
+    @livros.delete livro
+    @vendas << livro
+  end
 
-	def maximo_necessario
-		@livros.maximo_necessario
-	end
+  def maximo_necessario
+    @livros.maximo_necessario
+  end
 
   private
 
@@ -223,14 +223,14 @@ class Estoque
   # Não importa para quem eu estou perguntando
   # Importa que você tenha o método matches? e que o método matches me diga se você é de tal categoria ou não
 
-    def que_mais_vendeu_por(tipo, &campo)
-      @vendas.select {|produto| produto.matches?(tipo)}.sort {|v1,v2|
-        quantidade_de_vendas_por(v1, &campo) <=> quantidade_de_vendas_por(v2, &campo)
-      }.last
-    end
+  def que_mais_vendeu_por(tipo, &campo)
+    @vendas.select {|produto| produto.matches?(tipo)}.sort {|v1,v2|
+      quantidade_de_vendas_por(v1, &campo) <=> quantidade_de_vendas_por(v2, &campo)
+    }.last
+  end
 
-    def quantidade_de_vendas_por(produto , &campo)
-      @vendas.count {|venda| campo.call(venda) == campo.call(produto)}
-    end
+  def quantidade_de_vendas_por(produto , &campo)
+    @vendas.count {|venda| campo.call(venda) == campo.call(produto)}
+  end
 
 end

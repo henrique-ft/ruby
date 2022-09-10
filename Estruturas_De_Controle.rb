@@ -26,46 +26,35 @@ puts (3 == 3) && (4 == 4)
 
 # or
 
-puts (3 == 3) || (3 == 4) 
+puts (3 == 3) || (3 == 4)
 
 
 # if ---------------------------------------------------------------------------------------------------------
 
 # O if do ruby aceita qualquer expressão booleana, no entando, cada objeto em ruby possui um "valor booleano".
-# Os únicos objetos de valor booleano false são o próprio false e o nil. 
-# Portanto, qualquer valor pode ser usado como argumento do if 
-	
+# Os únicos objetos de valor booleano false são o próprio false e o nil.
+# Portanto, qualquer valor pode ser usado como argumento do if
+
 variavel = nil
 
 if variavel
-
-	puts("só iria imprimir se variável != null (nil)")
-
+  puts("só iria imprimir se variável != null (nil)")
 end
 
 if variavel == nil
-
-	puts("variável é nula")
-
+  puts("variável é nula")
 else
-
-	puts("variável não é nula")
-
+  puts("variável não é nula")
 end
 
 if 10 > 0
-
-	puts("dez maior que zero")
-
+  puts("dez maior que zero")
 elsif 5 > 0
-
-	puts("cinco maior que zero")
-
+  puts("cinco maior que zero")
 end
 
 unless idade < 5
-
-    puts "Você tem menos de 5 anos"
+  puts "Você tem menos de 5 anos"
 end
 
 # Condicionais inline
@@ -88,12 +77,12 @@ variavel_switch = gets
 
 case variavel_switch
 
-	when 3
-		puts "teste"
-	when 4
-		puts "é o número 4"
-	when 5
-		puts "é o número 5"	
+when 3
+  puts "teste"
+when 4
+  puts "é o número 4"
+when 5
+  puts "é o número 5"
 end
 
 puts variavel_switch.class
@@ -104,12 +93,12 @@ variavel_switch = 4
 
 case variavel_switch
 
-	when 3
-		puts "teste"
-	when 4
-		puts "é o número 4"
-	when 5
-		puts "é o número 5"	
+when 3
+  puts "teste"
+when 4
+  puts "é o número 4"
+when 5
+  puts "é o número 5"
 end
 
 
@@ -122,25 +111,19 @@ end
 puts "--------------------------------"
 
 for i in ('a'..'z')
-
-	puts i
-
+  puts i
 end
 
 puts "--------------------------------"
 
 for i in (1..5)
-
-	puts i
-
+  puts i
 end
 
 puts "--------------------------------"
 
 for i in (0..5)
-
-	puts i
-
+  puts i
 end
 
 # -------------------------------------------------------------------------------------------------------------------

@@ -1,11 +1,8 @@
 require 'ostruct'
 
 class Author
-
   attr_accessor :first_name, :last_name, :genre
-
   def author
-
     OpenStruct.new(first_name: first_name, last_name: last_name, genre: genre)
   end
 
@@ -14,18 +11,14 @@ class Author
   # Se não, chama o method missing default com o super
 
   def method_missing(method_name, *arguments, &block)
-
     if method_name.to_s =~ /author_(.*)/
-
       author.send($1, *arguments, &block)
     else
-
       super
     end
   end
 
   def respond_to_missing?(method_name, include_private = false)
-
     # Fez a mesma lógica que o método method_missing, porém de uma maneira reduzida
     method_name.to_s.start_with?('author_') || super
   end

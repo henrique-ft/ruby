@@ -1,7 +1,6 @@
 # No Ruby você pode nomear os argumentos que está passando
 
 def print_address city:, state:, zip:
-
   p city
   p state
   p zip
@@ -14,7 +13,6 @@ print_address city: "Santos", state: "SP", zip: 11025011
 # Named arguments são importantes para legibilidade do código, você não precisa se importar com a ordem dos argumentos na hora da chamada do métod. Veja o que acontece abaixo:
 
 def sms_generator api_key, num, message, locale
-
   # magic sms stuff...
 end
 
@@ -25,7 +23,6 @@ sms_generator "K0w91MADK", 139999999, 'hey there', 'US'
 # Agora não temos mais esse problema, repare que dessa vez colocamos um valor padrão para o argumento locale, logo, na chamada do método se torna opcional
 
 def sms_generator2 api_key:, num:, message:, locale: "US"
-
   # magic sms stuff...
 end
 

@@ -15,8 +15,7 @@ lugar = gets
 # Um parâmetro
 
 def pessoa.ir_para(lugar)  # Nesse caso atibuímos a função ir_para ao objeto objeto
-
-	"indo para #{lugar}"
+  "indo para #{lugar}"
 end
 
 puts pessoa.ir_para(lugar)
@@ -24,8 +23,7 @@ puts pessoa.ir_para(lugar)
 # Dois parâmetros
 
 def trocar_roupa(lugar,roupa)
-
-	"Trocando minha #{roupa} no #{lugar}"
+  "Trocando minha #{roupa} no #{lugar}"
 end
 
 puts trocar_roupa(lugar,"calça")
@@ -33,9 +31,7 @@ puts trocar_roupa(lugar,"calça")
 # Parametro pré-definido
 
 def trocar_roupa2(lugar="banheiro",roupa)
-
-	"trocando minha #{roupa} no #{lugar}"
-
+  "trocando minha #{roupa} no #{lugar}"
 end
 
 puts trocar_roupa2('camisa')
@@ -48,15 +44,11 @@ puts trocar_roupa_ruby_3('camisa')
 # A variável produtos vira um Array contendo todos os parâmetros passados
 
 def comprar(*produtos)
+  puts produtos.size()
 
-	puts produtos.size()
-
-	for i in produtos
-
-		puts i
-
-	end
-
+  for i in produtos
+    puts i
+  end
 end
 
 comprar('oi','tchal','adeus')
@@ -70,23 +62,16 @@ comprar 'oi','adeus','tchal'
 listadecompra = [1,2,3,"maçã","banana","pera"]
 
 def comprar2(*produtos) # O operador * é chamado de splat
+  puts "<começo da lista de compra>"
+  puts "tamanho = #{produtos.size()}"
 
-	puts "<começo da lista de compra>"
+  for i in produtos
+    for e in i
+      puts e
+    end
+  end
 
-	puts "tamanho = #{produtos.size()}"
-
-	for i in produtos
-
-		for e in i
-
-			puts e
-
-		end
-
-	end
-
-	puts "<fim da lista>"
-
+  puts "<fim da lista>"
 end
 
 comprar2 listadecompra  # nesse caso produtos.size() se torna 1 , produtos é uma variável que contêm um array
@@ -96,13 +81,11 @@ comprar2 listadecompra,listadecompra  # nesse caso produtos.size() se torna 2 , 
 # Também podemos passar parâmetros através de hash
 
 def transfere(argumentos)
+  destino = argumentos[:destino]
+  data = argumentos[:data]
+  valor = argumentos[:valor]
 
-	destino = argumentos[:destino]
-	data = argumentos[:data]
-	valor = argumentos[:valor]
-
-	puts "#{data} #{destino} #{valor}"
-
+  puts "#{data} #{destino} #{valor}"
 end
 
 transfere({destino: "escola", data: Time.now, valor: 50.00})
@@ -112,19 +95,13 @@ transfere({destino: "escola", data: Time.now, valor: 50.00})
 puts "------------------------------"
 
 class Pessoa
+  def fala
+    puts "Estou falando"
+  end
 
-	def fala
-
-		puts "Estou falando"
-
-	end
-
-	def trocar_roupa(lugar,roupa)
-
-		"Trocando minha #{roupa} no #{lugar}"
-
-	end
-
+  def trocar_roupa(lugar,roupa)
+    "Trocando minha #{roupa} no #{lugar}"
+  end
 end
 
 Edgar = Pessoa.new()
@@ -140,21 +117,15 @@ Edgar.fala
 puts "----------------------------"
 
 class Pessoa
+  def trocar_roupa_intima(lugar="banheiro",roupa)
+    "Trocando minha #{roupa} no #{lugar}"
+  end
 
-	def trocar_roupa_intima(lugar="banheiro",roupa)
-
-		"Trocando minha #{roupa} no #{lugar}"
-
-	end
-
-	def chamar_outro_metodo
-
-		self.fala # O self no Ruby é análogo ao This do Java, c# e outras linguagens. Mas você pode chamar um método da mesma classe sem ele.
-		fala # Automaticamente vai apontar para o self
-		puts " denovo"
-
-	end
-
+  def chamar_outro_metodo
+    self.fala # O self no Ruby é análogo ao This do Java, c# e outras linguagens. Mas você pode chamar um método da mesma classe sem ele.
+    fala # Automaticamente vai apontar para o self
+    puts " denovo"
+  end
 end
 
 Maria = Pessoa.new()
@@ -166,21 +137,15 @@ Maria.chamar_outro_metodo
 puts "----------------------------"
 
 class Pessoa
+  def mudar_nome(novo_nome)
+    @nome = novo_nome
+  end
 
-	def mudar_nome(novo_nome)
+  protected # todos os métodos abaixo desse são Protecteds
 
-		@nome = novo_nome
-
-	end
-
-	protected # todos os métodos abaixo desse são Protecteds
-
-		def diz_nome
-
-			"meu nome é #{@nome}"
-
-		end
-
+  def diz_nome
+    "meu nome é #{@nome}"
+  end
 end
 
 Roberto = Pessoa.new()
@@ -192,15 +157,11 @@ puts Roberto.diz_nome
 puts "-------------------------------"
 
 class Pessoa
-
-	def initialize(nome,altura,cor_do_cabelo) # Método constutor
-
-		@nome = nome
-		@altura = altura
-		@cor_do_cabelo = cor_do_cabelo
-
-	end
-
+  def initialize(nome,altura,cor_do_cabelo) # Método constutor
+    @nome = nome
+    @altura = altura
+    @cor_do_cabelo = cor_do_cabelo
+  end
 end
 
 Diandra = Pessoa.new("Diandra",1.70,"preto")
@@ -216,15 +177,13 @@ puts Diandra.diz_nome
 puts "-------------------------------"
 
 class Pessoa
+  def sexo
+    @sexo
+  end
 
-	def sexo
-		@sexo
-	end
-
-	def sexo=(novo_sexo)
-		@sexo = novo_sexo
-	end
-
+  def sexo=(novo_sexo)
+    @sexo = novo_sexo
+  end
 end
 
 Robervaldo = Pessoa.new("Roberto",1.80,"preto")
@@ -247,13 +206,11 @@ puts 10.+(3)
 # que escreve para você o métodos acessor: attr_reader e um outro que escreve o modificador: attr_writer de cada atributo, tem também um que escreve os dois: attr_acessor.
 
 class Pessoa
+  attr_accessor :altura
+  attr_accessor :cor_dos_olhos
 
-	attr_accessor :altura
-	attr_accessor :cor_dos_olhos
-
-	# repare que eu não havia declarado o atributo @peso antes. De uma certa meneira, o attr_acessor é uma forma mascarada de declarar atributos que podem ser acessados e modificados fora da classe.
-	attr_accessor :peso
-
+  # repare que eu não havia declarado o atributo @peso antes. De uma certa meneira, o attr_acessor é uma forma mascarada de declarar atributos que podem ser acessados e modificados fora da classe.
+  attr_accessor :peso
 end
 
 Marinaldo = Pessoa.new("Marinaldo",1.80,"loiro")
@@ -280,44 +237,36 @@ puts Marinaldo.methods
 # Métodos de classe e métodos de instância
 
 class Invoice
+  # Métodos de classe, são equivalentes aos métodos estáticos
+  def self.print_out
+    "Printed our invoice"
+  end
 
-	# Métodos de classe, são equivalentes aos métodos estáticos
-	def self.print_out
-
-		"Printed our invoice"
-	end
-
-	# Métodos de instância
-	def convert_to_pdf
-
-		puts "Converted to PDF"
-	end
-
+  # Métodos de instância
+  def convert_to_pdf
+    puts "Converted to PDF"
+  end
 end
 
 puts Invoice.print_out
 
 
 class ImExtending < Invoice
+  def extend
+    'im extending another class'
+  end
 
-	def extend
+  def convert_to_pdf # Polimorfismo
+    super # Chama o convert_to_pdf da classe pai antes desse
 
-		'im extending another class'
-	end
+    puts "Converted to PDF extended"
+  end
 
-	def convert_to_pdf # Polimorfismo
+  private # Métodos privados abaixo desse
 
-		super # Chama o convert_to_pdf da classe pai antes desse
-
-		puts "Converted to PDF extended"
-	end
-
-	private # Métodos privados abaixo desse
-
-		def metodo_private
-
-			'im a private method'
-		end
+  def metodo_private
+    'im a private method'
+  end
 end
 
 fim = gets

@@ -5,7 +5,6 @@ require 'httparty'
 # Essa gem facilita requisições para API's externas
 
 class EdutechionalResty
-
   include HTTParty
   base_uri "edutechional-resty.herokuapp.com/"
 
@@ -17,7 +16,6 @@ end
 edutechional_resty =  EdutechionalResty.new
 
 edutechional_resty.posts.each do |post|
-
   p "Title: #{post['title']}"
 end
 
@@ -35,7 +33,6 @@ puts response.message # Ok
 puts response.headers.inspect # Headers...
 
 class StackExchange
-
   include HTTParty
   base_uri 'api.stackexchange.com'
 
@@ -55,4 +52,3 @@ end
 stack_exchange = StackExchange.new('stackoverflow', 1)
 puts stack_exchange.questions
 puts stack_exchange.users
-

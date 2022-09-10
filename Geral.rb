@@ -12,23 +12,18 @@ puts idade + 1
 # Condicionais
 
 if idade > 7
-
   puts "você não é mais criança"
 else
-
   puts "Cê tem menos que sete anos"
 end
 
 unless idade < 5
-
   puts "Você tem menos de 5 anos"
 end
 
 case idade
-
 when 2
   puts "2 anos"
-
 when 3
   puts "3 anos"
 end
@@ -49,24 +44,20 @@ puts 5 % 2
 a = 0;
 
 while a < 10
-
   a += 1
   puts a
 end
 
 until a == 0
-
   a -= 1
   puts a
 end
 
 for i in 0..5
-
   puts i
 end
 
 [1,2,3,4].each do |j|
-
   puts j
 end
 
@@ -139,21 +130,18 @@ h = { a: 123, b: "Henrique"} # É a mesma coisa que o de cima, ele ja entende a:
 # Métodos
 
 def menu
-
   puts "------------------"
   puts "|      MENU      |"
   puts "------------------"
 end
 
 def custom_menu(x)
-
   puts "#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}"
   puts "|      MENU      |"
   puts "#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}#{x}"
 end
 
 def soma(x, y)
-
   puts x + y
 end
 
@@ -187,40 +175,32 @@ end
 # O nome da classe sempre deverá iniciar com a letra maiúscula
 
 class Pessoa
-
   def initialize(nome) # __construct
-
     @nome = nome # Atributos da classe, todo atributo no ruby é privado por padrão, porém você pode torna-lo publico criando métodos acessores
     @idade = 0
   end
 
   def imprimir_nome
-
     @nome # O retorno é implícito, a última linha da função
   end
 
   def mudar_nome novo_nome # Também não é obrigatório os parenteses em declarações de métodos em classes
-
     @nome = novo_nome
   end
 
   def idade # Método acessor da variável nome (get)
-
     @idade
   end
 
   def idade=(idade) # Método acessor da variável nome (set)
-
     @idade = idade
   end
 
   def apresente_se
-
     puts "Ola eu nasci de uma classe pessoa"
   end
 
   def qual_o_seu_numero?
-
     puts self.object_id
   end
 end
@@ -231,38 +211,31 @@ pessoa.mudar_nome "bye"
 puts pessoa.imprimir_nome
 
 class Pessoa2
-
   attr_accessor :idade # Cria automaticamente os métodos acessores de idade
 
   def initialize(nome) # __construct
-
     @nome = nome # Atributos da classe, todo atributo no ruby é privado por padrão, porém você pode torna-lo publico criando métodos acessores
     @idade = 0
   end
 
   def imprimir_nome
-
     @nome # O retorno é implícito, a última linha da função
   end
 
   def mudar_nome novo_nome # Também não é obrigatório os parenteses em declarações de métodos em classes
-
     @nome = novo_nome
   end
 
   def apresente_se
-
     puts "Ola eu nasci de uma classe pessoa"
   end
 
   def qual_o_seu_numero?
-
     puts self.object_id
   end
 end
 
 class PessoaJuridica < Pessoa # Herança
-
   attr_accessor :cnpj # Herda os atributos de Pessoa e acrescenta @cnpj
 end
 
@@ -274,15 +247,12 @@ end
 # (Diferente do php, você pode criar funções em módulos(namespaces))
 
 module Frete
-
   TABELA_FRETE = {"BA" => 1.95, "SP" => 3.87, "PE" => 2.56}
 
   def imprimir_tabela_frete
-
     puts "-- Tabela de Frete --"
 
     TABELA_FRETE.each do |k,v|
-
       puts "#{k} - #{v}"
     end
 
@@ -290,18 +260,15 @@ module Frete
   end
 
   def calcular_valor_final(valor_produto, uf)
-
     valor_produto * TABELA_FRETE[uf]
   end
 
   class ClasseDentroDoModulo
-
     attr_accessor :classe_dentro_do_modulo_atributo
   end
 end
 
 class Venda
-
   include Frete # Agora venda tem todos os métodos e constantes do módulo fret
 end
 

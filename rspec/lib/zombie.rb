@@ -1,14 +1,14 @@
 class Zombie
-	attr_accessor :name, :brains, :alive, :rotting
+  attr_accessor :name, :brains, :alive, :rotting
 
-	def initialize
-		@name = 'ash'
-		@brains = 0
-		#@alive = false
-		#@rotting = true
-	end
+  def initialize
+    @name = 'ash'
+    @brains = 0
+    #@alive = false
+    #@rotting = true
+  end
 
-	def hungry?
-		true
-	end
+  def hungry?
+    true
+  end
 end

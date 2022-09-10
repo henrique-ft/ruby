@@ -1,11 +1,10 @@
 # Transforma em array e usa o método select para filtrar todos os pares
 
 (1..10).to_a.select do |x|
-
-    x.even? 
+  x.even?
 end
 
-# É como se fosse o filter 
+# É como se fosse o filter
 
 (1..10).to_a.select {|x| x.even?}
 

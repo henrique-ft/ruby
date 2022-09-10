@@ -12,7 +12,7 @@ print nome
 mensagem = "Bom dia,"
 mensagem2 = "amigo"
 
-# O operador << concatena uma string com outra na mesma variável 
+# O operador << concatena uma string com outra na mesma variável
 
 mensagem << " hey"
 
@@ -38,7 +38,7 @@ puts "Estou interpolando uma variável juntando com outra string: #{string_qualq
 
 outronome = "henrique"
 puts "----------------------"
-puts outronome.capitalize 
+puts outronome.capitalize
 
 # Se você quiser que esse método altere definitivamente o valor do objeto string outronome, use o caracter ! no final da função o caracter (!) é chamado de bang
 

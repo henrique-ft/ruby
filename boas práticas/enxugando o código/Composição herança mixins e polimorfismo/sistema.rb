@@ -4,9 +4,9 @@ require_relative "ebook"
 require_relative "estoque"
 
 class Conversor
-   def string_para_alfanumerico(nome)
-       nome.gsub /[^\w\s]/,''
-   end
+  def string_para_alfanumerico(nome)
+    nome.gsub /[^\w\s]/,''
+  end
 end
 
 # Após separado a classe Livro em Revista, Ebook e Livro, não precisamos mais da variável tipo
