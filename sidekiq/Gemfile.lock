@@ -1,17 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    concurrent-ruby (1.0.5)
-    connection_pool (2.2.1)
-    rack (1.6.9)
-    rack-protection (1.5.3)
-      rack
-    redis (3.3.3)
-    sidekiq (5.0.0)
-      concurrent-ruby (~> 1.0)
-      connection_pool (~> 2.2, >= 2.2.0)
-      rack-protection (>= 1.5.0)
-      redis (~> 3.3, >= 3.3.3)
+    connection_pool (2.2.5)
+    rack (2.2.3)
+    redis (4.5.1)
+    sidekiq (6.4.0)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
 
 PLATFORMS
   ruby
