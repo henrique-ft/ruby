@@ -1,5 +1,5 @@
 # Ruby 🀄
-~~ Learning and discovering Ruby world
+> Learning and discovering Ruby world
 
 This repo has a lot of files containing Ruby code examples
 
